@@ -20,4 +20,4 @@ def chute_computador(x):
             baixo = chute + 1
     print(f'Eu já sabia, só estava te testando!')
 
-chute_computador(10)
+chute_computador(100)
