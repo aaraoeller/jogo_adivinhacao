@@ -5,16 +5,19 @@ def chute_computador(x):
     alto = x
     dica = ''
     while dica != 'c':
-        if baixo != alto:
+        if baixo <= alto:
             chute = random.randint(baixo, alto)
         else:
-            chute = baixo 
+            chute = baixo
+            break
         dica = input(f' O seu número é {chute} ? Muito alto (H), muito baixo (L), ou correto (C)? ').lower()
         if dica == 'h':
-            alto = chute - 1
+            if chute < alto:
+                alto = chute - 1
+            else:
+                baixo = chute + 1
         elif dica == 'l':
             baixo = chute + 1
-    
     print(f'Eu já sabia, só estava te testando!')
 
-chute_computador(100)
+chute_computador(10)
