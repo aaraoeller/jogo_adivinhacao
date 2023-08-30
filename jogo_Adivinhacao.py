@@ -15,6 +15,6 @@ def chute_computador(x):
         elif dica == 'l':
             baixo = chute + 1
     
-    print(f'Eu acertei!')
+    print(f'Eu já sabia, só estava te testando!')
 
-chute_computador(1000)
+chute_computador(100)
