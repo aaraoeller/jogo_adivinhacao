@@ -4,9 +4,11 @@ def chute_computador(x):
     baixo = 1
     alto = x
     dica = ''
+    chances = 10;
     while dica != 'c':
         if baixo <= alto:
             chute = random.randint(baixo, alto)
+            chances = chances - 1
         else:
             chute = baixo
             break
