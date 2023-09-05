@@ -1,19 +1,21 @@
 import random
+import time
 
 print('========== INICIANDO O JOGO ==========')
 
-def chute_computador(x):
-    baixo = 1
-    alto = x
+def chute_computador():
+    baixo = -100
+    alto = 100
     dica = ''
     chances = 10
     tentativas = 0
+    inicio = time.time()
 
-    # Pedir ao jogador para escolher entre par (P) ou ímpar (I)
-    escolha = input(f'Escolha um número entre 1 e {x}. O número que você escolheu é par (P) ou ímpar (I)? ').lower()
+
+    escolha = input(f'Escolha um número entre {baixo} e {alto}. O número que você escolheu é par (P) ou ímpar (I)? ').lower()
 
     while dica != 'c' and chances > 0:
-        # Gerar um chute que corresponda à escolha do jogador
+
         if escolha == 'p':
             chute = random.randint(baixo, alto)
             while chute % 2 != 0:
@@ -33,10 +35,14 @@ def chute_computador(x):
         chances -= 1
         tentativas += 1
 
+    fim = time.time()
+    tempo_total = fim - inicio
+
     if dica == 'c':
         print(f'Computador: Eu adivinhei, o seu número é ({chute})')
         print(f'Computador: Foram necessárias {tentativas} tentativas para acertar.')
+        print(f'Computador: Tempo total de jogo: {tempo_total:.2f} segundos')
     else:
-        print(f'Computador: As minhas chances se esgotaram. Mas eu acho que o número era {x}.')
+        print(f'Computador: As minhas chances se esgotaram.')
 
-chute_computador(100)
+chute_computador()
