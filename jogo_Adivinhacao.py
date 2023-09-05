@@ -9,18 +9,19 @@ def chute_computador(x):
     chances = 10
     tentativas = 0
 
-
+    # Pedir ao jogador para escolher entre par (P) ou ímpar (I)
     escolha = input(f'Escolha um número entre 1 e {x}. O número que você escolheu é par (P) ou ímpar (I)? ').lower()
 
     while dica != 'c' and chances > 0:
-        if baixo <= alto:
+        # Gerar um chute que corresponda à escolha do jogador
+        if escolha == 'p':
             chute = random.randint(baixo, alto)
-        else:
-            print(f'Intervalo inválido: baixo ({baixo}) é maior que alto ({alto}).')
-            break
-
-        if (escolha == 'p' and chute % 2 == 0) or (escolha == 'i' and chute % 2 != 0):
-            print("Computador: ok, entendi...")
+            while chute % 2 != 0:
+                chute = random.randint(baixo, alto)
+        elif escolha == 'i':
+            chute = random.randint(baixo, alto)
+            while chute % 2 == 0:
+                chute = random.randint(baixo, alto)
         
         print(f'Computador: Eu tenho {chances} chances.')
 
