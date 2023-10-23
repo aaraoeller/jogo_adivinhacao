@@ -1,6 +1,6 @@
 import random
 
-def chtue_computador():
+def chute_computador():
     baixo = 0
     alto = 100
     dica = ''
@@ -23,4 +23,4 @@ def chtue_computador():
     else:
         print('Minhas chances se esgotaram')
 
-chtue_computador()
+chute_computador()
